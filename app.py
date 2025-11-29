@@ -9,9 +9,23 @@ from src import features, config
 
 st.set_page_config(page_title="DermAI Classification", layout="centered")
 
+# 2. Inject Custom CSS to widen the centered container
+st.markdown(
+    """
+    <style>
+    .block-container {
+        max-width: 1000px; /* Adjust this value to control width (Default is ~700px) */
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 st.title("🔬 Skin Lesion Classification")
 st.markdown("""
-This system uses **Classical Machine Vision** techniques (Histogram Equalization, Adaptive Thresholding, Morphology) 
+This system uses **Classical Machine Vision** techniques (CLAHE, Otsu Thresholding, Morphology) 
 to classify skin lesions.
 """)
 
@@ -54,8 +68,21 @@ if uploaded_file is not None:
     chart_data = pd.DataFrame({"Class": classes, "Probability": probs[0] * 100})
     st.bar_chart(chart_data.set_index("Class"))
 
-    with st.expander("ℹ️  Legend: What do these abbreviations mean?"):
-        st.table(pd.DataFrame(config.LEGEND_DATA))
+    with st.expander("Abbreviation information"):
+        # Load data
+        df_legend = pd.DataFrame(config.LEGEND_DATA)
+        st.dataframe(
+            df_legend,
+            column_config={
+                "More Info": st.column_config.LinkColumn(
+                    "More",  # Column header name
+                    help="Click to visit Wikipedia page",
+                    display_text="🔍"  # Text to show instead of the full URL
+                )
+            },
+            hide_index=True,
+            use_container_width=True  # Stretches table to fit width
+        )
 
     # --- Explainability ---
     with st.expander("See Internal Logic (Computer Vision Pipeline Steps)", expanded=False):

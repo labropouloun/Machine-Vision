@@ -23,9 +23,33 @@ CLAHE_GRID = (8, 8)          # Grid size for local equalization
 # Histogram Config
 HIST_BINS = 8
 
-# Legend (Same as before)
 LEGEND_DATA = {
     "Abbreviation": ["MEL", "NV", "BCC", "AKIEC", "BKL", "DF", "VASC"],
-    "Full Diagnosis": ["Melanoma", "Melanocytic nevi", "Basal cell carcinoma", "Actinic keratoses", "Benign keratosis-like lesions", "Dermatofibroma", "Vascular lesions"],
-    "Description": ["Malignant skin tumor.", "Benign moles.", "Common skin cancer.", "Pre-cancerous lesions.", "Non-cancerous growths.", "Benign nodules.", "Benign blood vessel lesions."]
+    "Full Diagnosis": [
+        "Melanoma",
+        "Melanocytic nevus",
+        "Basal cell carcinoma",
+        "Actinic keratoses",
+        "Benign keratosis-like lesions",
+        "Dermatofibroma",
+        "Vascular lesions"
+    ],
+    "Description": [
+        "Malignant skin tumor (Cancerous).",
+        "Benign melanocytic proliferations (Moles).",
+        "Common variant of skin cancer (Cancerous).",
+        "Pre-cancerous skin lesions.",
+        "Non-cancerous skin growths (e.g., solar lentigines).",
+        "Benign skin lesion (nodules).",
+        "Benign blood vessel lesions."
+    ],
+    "More Info": [
+        "https://en.wikipedia.org/wiki/Melanoma",
+        "https://en.wikipedia.org/wiki/Melanocytic_nevus",
+        "https://en.wikipedia.org/wiki/Basal-cell_carcinoma",
+        "https://en.wikipedia.org/wiki/Actinic_keratosis",
+        "https://en.wikipedia.org/wiki/Seborrheic_keratosis",
+        "https://en.wikipedia.org/wiki/Dermatofibroma",
+        "https://en.wikipedia.org/wiki/Cherry_angioma"
+    ]
 }

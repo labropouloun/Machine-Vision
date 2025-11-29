@@ -3,8 +3,7 @@ from src import data, features, model
 
 
 def main():
-    # 1. Load Data
-    df, classes = data.load_metadata(limit=None)  # Set limit=None for full run
+    df, classes = data.load_metadata(limit=1000)  # Set limit=None for full run
 
     # 2. Feature Extraction Loop
     print(f"Extracting features for {len(df)} images...")
@@ -15,7 +14,7 @@ def main():
     for idx, row in df.iterrows():
         if idx % 100 == 0: print(f"Processing {idx}/{total}...")
 
-        # Call the pipeline from the package
+        # Call the generic pipeline
         feats = features.extract_all_features_pipeline(row['path'])
 
         if feats is not None:
