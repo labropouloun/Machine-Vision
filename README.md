@@ -1,4 +1,6 @@
-# Project Structure
+#By Kolia Aimilia, Kontoudakis Nikos, Skiada Kiki, Lampropoulou Nancy
+The propejct aims to classify lessions.
+## Project Structure
 
 The project is organized as follows:
 
